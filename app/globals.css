@@ -116,7 +116,7 @@
   }
 
   .tag {
-    @apply bg-[rgba(251,212,67)] px-6 py-3 font-bold rounded-sm uppercase relative;
+    @apply bg-[#fbd443] px-6 py-3 font-bold rounded-sm uppercase relative;
   }
 
   .tag-tri {

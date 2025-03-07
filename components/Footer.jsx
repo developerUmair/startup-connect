@@ -53,7 +53,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative mt-20 dark:from-gray-900 dark:to-black overflow-hidden bg-gradient-to-r from-[#EE2B69] via-[#FBD443] to-[#7D3C98]">
+    <footer className="relative mt-10 dark:from-gray-900 dark:to-black overflow-hidden bg-gradient-to-r from-[#EE2B69] via-[#FBD443] to-[#7D3C98]">
       <div className="h-1.5 w-full bg-gradient-to-r from-[rgb(238,43,105)] via-purple-500 to-blue-500 animate-gradient-x"></div>
       {/* Animated wave with parallax effect */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-0 transform translate-y-[-50%]">
@@ -247,53 +247,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Stats section with counting animation */}
-        <div
-          id="stats-section"
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 py-8 mt-16"
-        >
-          {[
-            {
-              icon: <Rocket className="w-8 h-8" />,
-              stat: "500+",
-              label: "Startups Funded",
-            },
-            {
-              icon: <DollarSign className="w-8 h-8" />,
-              stat: "$200M+",
-              label: "Investments",
-            },
-            {
-              icon: <Lightbulb className="w-8 h-8" />,
-              stat: "50+",
-              label: "Unicorns",
-            },
-            {
-              icon: <Users className="w-8 h-8" />,
-              stat: "5000+",
-              label: "Founders",
-            },
-          ].map((item, index) => (
-            <div
-              key={index}
-              className="relative flex flex-col items-center justify-center p-6 text-center group rounded-xl bg-white/30 dark:bg-black/30 border border-white/20 dark:border-gray-800/50 shadow-lg transform transition-all duration-500 hover:scale-105 hover:shadow-xl"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-[rgb(238,43,105)]/5 to-purple-500/5 rounded-xl -z-10"></div>
-              <div className="mb-3 transform transition-transform duration-500 group-hover:scale-110 text-[rgb(238,43,105)]">
-                {item.icon}
-              </div>
-              <div
-                className={`text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[rgb(238,43,105)] to-purple-600 ${animateStats ? "animate-count-up" : ""}`}
-              >
-                {item.stat}
-              </div>
-              <div className="text-sm text-gray-600 dark:text-gray-300 mt-1">
-                {item.label}
-              </div>
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-[rgb(238,43,105)] to-purple-600 rounded-xl blur opacity-0 group-hover:opacity-20 transition duration-1000 group-hover:duration-200 animate-gradient-x -z-20"></div>
-            </div>
-          ))}
-        </div>
         {/* Bottom footer with animated border */}
         <div className="pt-10 mt-10 relative">
           <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-[rgb(238,43,105)]/30 to-transparent"></div>

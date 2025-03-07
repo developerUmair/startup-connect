@@ -14,24 +14,24 @@ const Navbar = async () => {
         <Link href="/">
           {/* <Image src="/logo.png" alt="logo" width={144} height={30} /> */}
           <svg
-            width="184"
-            height="30"
+            width={184}
+            height={30}
             viewBox="0 0 144 30"
             xmlns="http://www.w3.org/2000/svg"
           >
+            <rect width={184} height={30} fill="rgba(251,212,67,0.3)" />
             <text
               x="50%"
               y="50%"
-              font-family="Arial, sans-serif"
-              font-size="24"
-              font-weight="bold"
+              fontFamily="Arial, sans-serif"
+              fontSize={24}
+              fontWeight="bold"
               fill="rgb(238, 43, 105)"
-              text-anchor="middle"
-              dominant-baseline="middle"
+              textAnchor="middle"
+              dominantBaseline="middle"
             >
               Startup Connect
             </text>
-            <rect width="184" height="30" fill="rgba(251,212,67,0.3)" />
           </svg>
         </Link>
 
