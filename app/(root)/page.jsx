@@ -4,6 +4,8 @@ import StartupCard from "../../components/StartupCard";
 import { client } from "../../sanity/lib/client";
 import { sanityFetch, SanityLive } from "../../sanity/lib/live";
 import { STARTUP_QUERY } from "../../sanity/lib/queries";
+import { Marquee3D } from "../../components/ReviewCard";
+import Image from "next/image";
 
 const Page = async ({ searchParams }) => {
   const query = await searchParams.query;
@@ -44,6 +46,16 @@ const Page = async ({ searchParams }) => {
             <p className="no-results">No startups found</p>
           )}
         </ul>
+
+        <div className="flex flex-col lg:flex-row items-center justify-center w-full gap-6 p-6">
+        <div className="w-full lg:w-1/2">
+          <Marquee3D />
+        </div>
+
+        <div className="w-full lg:w-1/2">
+          <Image src={'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/features/feature-office-long.png'} alt="flow-bite" width={500} height={300} className="rounded-lg border border-gray-200 bg-white" />
+        </div>
+      </div>
       </div>
       <SanityLive />
     </>
