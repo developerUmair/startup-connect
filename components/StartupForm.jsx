@@ -8,13 +8,12 @@ import { Button } from "./ui/button";
 import { Send } from "lucide-react";
 import { formSchema } from "@/lib/validation";
 import { z } from "zod";
-import { useToast } from "@/hooks/use-toast";
 import { useRouter } from "next/navigation";
+import { createPitch } from "@/lib/actions";
 
 const StartupForm = () => {
   const [errors, setErrors] = useState({});
   const [pitch, setPitch] = useState("");
-  const toast = useToast();
   const router = useRouter();
 
   const handleFormSubmit = async (prevState, formData) => {
@@ -32,17 +31,12 @@ const StartupForm = () => {
       console.log("Form validated successfully:", formValues);
 
       // Uncomment and fix this when ready:
-      // const result = await createIdea(formValues);
-      // return { status: "SUCCESS", data: result };
-      // if (result.status === "SUCCESS") {
-      //   toast({
-      //     title: "Error",
-      //     description: "Your startup pitch has been submitted successfully.",
-      //   });
-      // }
+      const result = await createPitch(prevState, formData, pitch);
+      console.log("Submitted");
+      console.log("Submitted", result);
 
-      // router.push(`/start/${result?.id}`);
-      // return result;
+      router.push(`/startup/${result?._id}`);
+      return result;
     } catch (error) {
       console.error("Validation error:", error);
 
@@ -54,12 +48,6 @@ const StartupForm = () => {
           fieldErrors[field] = err.message;
         });
 
-        toast({
-          title: "Error",
-          description: "Please check your inputs and try again.",
-          variant: "desctructive",
-        });
-
         // Return the errors to be available in the 'state' variable
         return {
           status: "ERROR",
@@ -67,12 +55,6 @@ const StartupForm = () => {
           fieldErrors,
         };
       }
-
-      toast({
-        title: "Error",
-        description: "An unexpected error occurred.",
-        variant: "desctructive",
-      });
 
       return {
         status: "ERROR",
@@ -98,8 +80,8 @@ const StartupForm = () => {
           className="startup-form_input"
           placeholder="Startup Title"
         />
-        {state.fieldErrors?.title && (
-          <p className="startup-form_error">{state.fieldErrors?.title}</p>
+        {state?.fieldErrors?.title && (
+          <p className="startup-form_error">{state?.fieldErrors?.title}</p>
         )}
       </div>
       <div>
@@ -112,8 +94,10 @@ const StartupForm = () => {
           className="startup-form_textarea max-h-40"
           placeholder="Startup Description"
         />
-        {state.fieldErrors?.description && (
-          <p className="startup-form_error">{state.fieldErrors?.description}</p>
+        {state?.fieldErrors?.description && (
+          <p className="startup-form_error">
+            {state?.fieldErrors?.description}
+          </p>
         )}
       </div>
       <div>
@@ -126,8 +110,8 @@ const StartupForm = () => {
           className="startup-form_input"
           placeholder="Startup Category (Tech, Health, Education)"
         />
-        {state.fieldErrors?.category && (
-          <p className="startup-form_error">{state.fieldErrors?.category}</p>
+        {state?.fieldErrors?.category && (
+          <p className="startup-form_error">{state?.fieldErrors?.category}</p>
         )}
       </div>
       <div>
@@ -140,8 +124,8 @@ const StartupForm = () => {
           className="startup-form_input"
           placeholder="Startup Image URL"
         />
-        {state.fieldErrors?.link && (
-          <p className="startup-form_error">{state.fieldErrors?.link}</p>
+        {state?.fieldErrors?.link && (
+          <p className="startup-form_error">{state?.fieldErrors?.link}</p>
         )}
       </div>
       <div data-color-mode="light">
@@ -164,8 +148,8 @@ const StartupForm = () => {
           }}
         />
         <MDEditor.Markdown source={pitch} style={{ whiteSpace: "pre-wrap" }} />
-        {state.fieldErrors?.pitch && (
-          <p className="startup-form_error">{state.fieldErrors?.pitch}</p>
+        {state?.fieldErrors?.pitch && (
+          <p className="startup-form_error">{state?.fieldErrors?.pitch}</p>
         )}
       </div>
       <Button type="submit" disabled={isPending} className="startup-form_btn">

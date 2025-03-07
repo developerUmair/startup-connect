@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { formatDate } from "../lib/utils";
+import { cn } from "@/lib/utils";
+import { Skeleton } from "./ui/skeleton";
 
 const StartupCard = ({ post }) => {
   const {
@@ -63,5 +65,15 @@ const StartupCard = ({ post }) => {
     </li>
   );
 };
+
+export const StartupCardSkeleton = () => (
+  <>
+    {[0, 1, 2, 3, 4].map((index) => (
+      <li key={cn("skeleton", index)}>
+        <Skeleton className="startup-card_skeleton" />
+      </li>
+    ))}
+  </>
+);
 
 export default StartupCard;

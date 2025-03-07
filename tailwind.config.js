@@ -12,10 +12,7 @@ const config = {
 				xs: "475px",
 			},
 			colors: {
-				primary: {
-					"100": "#FFE8F0",
-					DEFAULT: "#EE2B69",
-				},
+				primary: "linear-gradient(to right, #EE2B69, #FBD443, #7D3C98)", 
 				secondary: "#FBE843",
 				black: {
 					"100": "#333333",
