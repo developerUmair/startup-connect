@@ -204,7 +204,7 @@ export default function EnhancedFAQs() {
 
         {/* Header with gradient text */}
         <div className="text-center mb-16 relative">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[rgb(238,43,105)] to-[#fbd443]">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[rgb(238,43,105)] to-[#fbd443]">
             Frequently asked questions
           </h2>
           <p className="text-lg text-gray-400">Everything you need to know about joining LaunchPad</p>
@@ -242,9 +242,9 @@ export default function EnhancedFAQs() {
                 >
                   <button
                     onClick={() => setActiveIndex(activeIndex === faq.id ? null : faq.id)}
-                    className="w-full flex items-center justify-between p-6"
+                    className="w-full flex items-center justify-between p-2 md:p-6"
                   >
-                    <div className="flex items-center gap-6">
+                    <div className="flex items-center gap-3 md:gap-6">
                       <motion.span
                         className={`flex items-center justify-center w-12 h-12 rounded-xl text-lg font-semibold transition-colors duration-500`}
                         animate={{
@@ -260,7 +260,7 @@ export default function EnhancedFAQs() {
                       >
                         {faq.id}
                       </motion.span>
-                      <span className="text-left text-lg font-medium text-white">{faq.question}</span>
+                      <span className="text-left text-base md:text-lg font-medium text-white">{faq.question}</span>
                     </div>
                     <div className="ml-6 flex-shrink-0">
                       <motion.div
@@ -286,9 +286,9 @@ export default function EnhancedFAQs() {
                       transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
                       className="overflow-hidden rounded-b-2xl bg-zinc-900/80 backdrop-blur-sm border border-zinc-800 border-t-0"
                     >
-                      <div className="relative p-6 pt-2 pl-24 text-gray-300 leading-relaxed">
+                      <div className="relative p-6 pt-2 pl-5 md:pl-24 text-gray-300 leading-relaxed">
                         {/* Decorative element */}
-                        <div className="absolute left-[24px] top-0 w-0.5 h-full bg-gradient-to-b from-[rgb(238,43,105)] to-[#fbd443] opacity-30"></div>
+                        <div className="absolute left-[15px] md:left-[24px] top-0 w-0.5 h-full bg-gradient-to-b from-[rgb(238,43,105)] to-[#fbd443] opacity-30"></div>
 
                         <motion.div
                           initial={{ opacity: 0, y: 10 }}

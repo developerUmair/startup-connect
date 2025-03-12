@@ -185,8 +185,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       if (account && profile) {
         // Fetch the user based on Google's unique ID
         const user = await client
-          .withConfig({ useCdn: false })
-          .fetch(AUTHOR_BY_GOOGLE_ID_QUERY, {
+          ?.withConfig({ useCdn: false })
+          ?.fetch(AUTHOR_BY_GOOGLE_ID_QUERY, {
             googleId: profile.sub,
           });
 

@@ -111,8 +111,6 @@ export async function Marquee3D() {
   const data = await res.json();
   const users = data.results;
 
-  console.log(users);
-
   // Merge API users with existing reviews
   const updatedReviews = reviews.map((review, index) => ({
     ...review,

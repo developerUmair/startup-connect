@@ -83,7 +83,7 @@ import Stats from "@/components/Stats"
 import Image from "next/image"
 
 const Page = async ({ searchParams }) => {
-  const query = await searchParams.query
+  const query = await searchParams?.query
   const params = { search: query || null }
 
   const { data: posts } = await sanityFetch({ query: STARTUP_QUERY, params })

@@ -5,7 +5,7 @@ import { STARTUP_VIEWS_QUERY } from "@/sanity/lib/queries";
 
 const View = async ({ id }) => {
   // Fetch the current views count
-  const data = await client.withConfig({ useCdn: false }).fetch(STARTUP_VIEWS_QUERY, { id });
+  const data = await client.withConfig({ useCdn: false })?.fetch(STARTUP_VIEWS_QUERY, { id });
 
   if (!data || typeof data.views !== "number") {
     console.error("Error fetching views");
