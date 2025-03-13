@@ -343,7 +343,6 @@ const StartupForm = () => {
             name="image"
             type="file"
             accept="image/*"
-            className="startup-form_input"
             onChange={handleImageChange}
           />
           
