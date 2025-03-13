@@ -108,11 +108,11 @@ export async function Marquee3D() {
   ];
 
   const res = await fetch(`https://randomuser.me/api/?results=5`);
-  const data = await res.json();
-  const users = data.results;
+  const data = await res?.json();
+  const users = data?.results;
 
   // Merge API users with existing reviews
-  const updatedReviews = reviews.map((review, index) => ({
+  const updatedReviews = reviews?.map((review, index) => ({
     ...review,
     name: users[index]?.name.first + " " + users[index]?.name.last,
     username: users[index]?.login.username,
@@ -126,7 +126,6 @@ export async function Marquee3D() {
   return (
     <>
       <div className="relative rounded-2xl overflow-hidden">
-
         {/* Content container */}
         <div className="relative z-10 max-w-4xl mx-auto">
           <div className="text-center relative mb-4">
@@ -168,7 +167,6 @@ export async function Marquee3D() {
             ))}
           </Marquee>
         </div>
-
         <div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-background"></div>
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-background"></div>
         <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div>
