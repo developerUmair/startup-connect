@@ -116,7 +116,7 @@ const Page = async ({ searchParams }) => {
 
         <div className="flex flex-col lg:flex-row items-center justify-center w-full gap-6 p-6 rounded-2xl my-16">
           <div className="w-full lg:w-1/2">
-            <Marquee3D />
+            {/* <Marquee3D /> */}
           </div>
 
           <div className="w-full lg:w-1/2">

@@ -78,17 +78,6 @@ const Navbar = async () => {
               </Link>
             </div>
           ) : (
-            // <form
-            //   action={async () => {
-            //     "use server";
-
-            //     await signIn("google");
-            //   }}
-            // >
-            //   <button type="submit" className="cursor-pointer">
-            //     Login
-            //   </button>
-            // </form>
             <form
               action={async () => {
                 "use server";
