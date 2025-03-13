@@ -90,38 +90,35 @@ const ReviewCard = ({ img, name, username, body }) => {
 export async function Marquee3D() {
   const reviews = [
     {
+      name: "Sam Altman",
+      username: "@sama",
       body: "Startup Connect completely changed our trajectory. We wouldn't be where we are today without it.",
       img: "https://avatar.vercel.sh/sama",
     },
     {
+      name: "Patrick Collison",
+      username: "@patrickc",
       body: "Startup Connect gave us the confidence and network to build Stripe into what it is today.",
       img: "https://avatar.vercel.sh/patrickc",
     },
     {
+      name: "Alexis Ohanian",
+      username: "@alexisohanian",
       body: "Startup Connect is the best startup launchpad in the world. No competition.",
       img: "https://avatar.vercel.sh/alexisohanian",
     },
     {
+      name: "Jessica Livingston",
+      username: "@jessical",
       body: "The Startup Connect community is the secret weapon of every great startup.",
       img: "https://avatar.vercel.sh/jessical",
     },
   ];
-
-  const res = await fetch(`https://randomuser.me/api/?results=5`);
-  const data = await res?.json();
-  const users = data?.results;
-
-  // Merge API users with existing reviews
-  const updatedReviews = reviews?.map((review, index) => ({
-    ...review,
-    name: users[index]?.name.first + " " + users[index]?.name.last,
-    username: users[index]?.login.username,
-    img: users[index]?.picture.large || review.img,
-  }));
+  
 
   // Split the updated reviews into two rows
-  const firstRow = updatedReviews.slice(0, updatedReviews.length / 2);
-  const secondRow = updatedReviews.slice(updatedReviews.length / 2);
+  const firstRow = reviews.slice(0, reviews.length / 2);
+  const secondRow = reviews.slice(reviews.length / 2);
 
   return (
     <>
